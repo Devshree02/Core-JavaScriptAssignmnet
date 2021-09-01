@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="java-Ass.css">
+</head>
+  <title>JavaScript</title>
+  <body class="bg-img">
+    <form>
+  	<h1>Information form</h1>
+  	<input type="text" id="tsn" placeholder="Enter S. No." height="100"><br>
+    <input type="text" id="tname" placeholder="Enter your name"><br>
+
+  	<button onclick="add_student();">Submit</button>
+  	<button onclick="add_only();">Add</button>
+    <button onclick="add_only();">Add</button>
+    <button onclick="add_only();">Add</button>
+
+  	<table border="1" id="tab">
+  		<tr>
+  			<th>S. No.</th>
+  			<th>Name</th>
+  		</tr>
+  		
+  	</table>
+  </form>
+  	<script>
+  		function add_student()
+  		{
+  			var inpt = document.getElementById("tsn").value;
+            var inpt1 = document.getElementById("tname").value;
+            var table = document.getElementById("tab");
+            table.style.display="block";
+
+
+            var row = table.insertRow(tab.rows.length);
+
+            var sn = row.insertCell(0);
+            var name = row.insertCell(1);
+            sn.innerHTML = inpt;
+            name.innerHTML = inpt1;
+
+            let get_ele= JSON.parse(window.localStorage.getItem('input_json'));
+            console.log(get_ele);
+            //alert("console value ",get_ele.Name);
+            //s.innerHTML=get_ele.sno; 
+
+
+            //JSON.parse(window.localStorage.getItem(''));
+            //alert(get_ele);
+  		}
+
+  		function add_only()
+  		{
+  			var inpt = document.getElementById("tsn").value;
+            var inpt1 = document.getElementById("tname").value;
+            var table = document.getElementById("tab");
+            var input_json = "{ “sno” : "+inpt +" ,”Name”:" +inpt1+ " }";
+            window.localStorage.setItem('input_json', JSON.stringify(input_json));
+           
+
+
+            var row = table.insertRow(tab.rows.length);
+
+            var sn = row.insertCell(0);
+            var name = row.insertCell(1);
+           
+  		}
+  	</script>
+  </body>
+</html>
