@@ -11,11 +11,12 @@
    
   	<h1>Information form</h1>
   	
-    <input type="text" id="tname" placeholder="Enter your name"><br>
+    <input type="text" id="inputName" placeholder="Enter your name"><br>
 
-  	<button onclick="add_student();">Submit</button>
-  	<button onclick="add_only();">Add New</button>
-    
+    <button onclick="students.addOnly();">Add New</button>
+  	<button onclick="students.addStudent();">Submit</button>
+
+    <p id = "pera" style="background-color:white;"></p>
 
   	<table border="1" id="tab">
   		<tr>
@@ -26,60 +27,47 @@
   	</table>
  
   	<script>
-  		function add_only()
-  		{
-  			// var inpt = document.getElementById("tsn").value;
-     //    var inpt1 = document.getElementById("tname").value;
-     //    var table = document.getElementById("tab");
-     //    table.style.display="block";
+    
+      let students ={
+      student : [],
+      count : 0,
+      addOnly : function()  {
+        var scriptName = document.getElementById("inputName").value;
+        this.student.push(scriptName);
+        
+        alert("Added Successfully\n" + "" + this.student);
+      },
 
 
-     //    var row = table.insertRow(tab.rows.length);
 
-     //    var sn = row.insertCell(0);
-     //    var name = row.insertCell(1);
-     //    sn.innerHTML = inpt;
-     //    name.innerHTML = inpt1;
-
-     //    let get_ele= JSON.parse(window.localStorage.getItem('input_json'));
-     //    console.log(get_ele);
-     //        //alert("console value ",get_ele.Name);
-     //        //s.innerHTML=get_ele.sno; 
-
-
-     //        //JSON.parse(window.localStorage.getItem(''));
-            //alert(get_ele);
-            window.localStorage
-        var na= document.getElementById("tname").value;
-        localStorage.setItem("key", na);
-        alert(na);
-  		}
-
-  		function add_student()
-  		{
-  			// var inpt = document.getElementById("tsn").value;
-     //        var inpt1 = document.getElementById("tname").value;
-            
-     //        var input_json = "{ “sno” : "+inpt +" ,”Name”:" +inpt1+ " }";
-     //        window.localStorage.setItem('input_json', JSON.stringify(input_json));
-
-           var table = document.getElementById("tab");
-          var nam= localStorage.getItem("key");
-
-           
-
-
-            var row = table.insertRow(1);
-
-            
-            var name = row.insertCell(1);
-             alert(nam);
-            name.innerHTML=nam;
-            
+      addStudent : function()  {
+        var tabl = document.getElementById("pera");
+        var table = document.getElementById("tab");
+        var scriptName = document.getElementById("inputName").value;
+        this.student.push(scriptName);
+        
+        for (let i = 0; i < this.student.length; i++){
 
 
            
-  		}
-  	</script>
+
+          this.count++;
+
+          var row = table.insertRow(this.count);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          
+          
+          cell1.innerHTML = this.count;
+          cell2.innerHTML = this.student[i];
+        }
+
+       }
+     }
+    
+
+
+    </script>
+
   </body>
 </html>
