@@ -1,6 +1,5 @@
 .bg-img
 {
-	background-image: url(images/body-back.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: center;
@@ -12,7 +11,7 @@ form
 }
 h1
 {
-	color: white;
+	color: black;
 	text-align: center;
 	text-decoration: underline;
 	margin-top: 10px;
